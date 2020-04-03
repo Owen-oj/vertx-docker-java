@@ -7,7 +7,7 @@ public class HelloVerticle extends AbstractVerticle {
   @Override
   public void start() throws Exception {
     vertx.createHttpServer().requestHandler(request -> {
-      request.response().end("Hello AWS CodePipeLine & Docker world !!!");
+      request.response().end("Hello AWS CodePipeLine & Docker world !!!!");
     }).listen(8888);
   }
 }

@@ -4,12 +4,12 @@ phases:
   pre_build:
     commands:
       - REPOSITORY_URI=268021257063.dkr.ecr.us-east-1.amazonaws.com/test/vertx-repo
-      - IMAGE_TAG=latest-build
+      - IMAGE_TAG=latestbuild
   build:
     commands:
       - echo Build started on `date`
       - echo building the Docker image
-      - docker build -t $REPOSITORY_URI:latest
+      - docker build -t $REPOSITORY_URI:latest .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:

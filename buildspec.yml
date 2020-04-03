@@ -10,13 +10,13 @@ phases:
       - echo Build started on `date`
       - echo building the Docker image
       - docker build -t $REPOSITORY_URI:latest .
-      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+      - docker tag 268021257063.dkr.ecr.us-east-1.amazonaws.com/test/vertx-repo:latest 268021257063.dkr.ecr.us-east-1.amazonaws.com/test/vertx-repo:$IMAGE_TAG
   post_build:
     commands:
       - echo Build completed on `date`
       - echo pushing the Docker image
-      - docker push $REPOSITORY_URI:latest
-      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - docker push 268021257063.dkr.ecr.us-east-1.amazonaws.com/test/vertx-repo:latest
+      - docker push 268021257063.dkr.ecr.us-east-1.amazonaws.com/test/vertx-repo:$IMAGE_TAG
 artifacts:
   files:
     - target/hello-verticle-3.9.0.jar.jar

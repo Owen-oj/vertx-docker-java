@@ -1,14 +1,22 @@
 version: 0.1
 
 phases:
+  pre_build:
+    commands:
+      - REPOSITORY_URI=268021257063.dkr.ecr.us-east-1.amazonaws.com/test/vertx-repo
+      - IMAGE_TAG=latest-build
   build:
     commands:
       - echo Build started on `date`
-      - mvn test
+      - echo building the Docker image
+      - docker build -t $REPOSITORY_URI:latest
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
       - echo Build completed on `date`
-      - mvn package
+      - echo pushing the Docker image
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
 artifacts:
   files:
     - target/hello-verticle-3.9.0.jar.jar

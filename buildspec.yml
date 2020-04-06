@@ -5,7 +5,7 @@ phases:
     commands:
       - REPOSITORY_URI=268021257063.dkr.ecr.us-east-1.amazonaws.com/test/vertx-repo
       - IMAGE_TAG=latestbuild
-      - $(aws ecr get-login --region us-east-1)
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
   build:
     commands:
       - echo Build started on `date`

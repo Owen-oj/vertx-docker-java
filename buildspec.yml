@@ -20,4 +20,4 @@ phases:
       - docker push 268021257063.dkr.ecr.us-east-1.amazonaws.com/test/vertx-repo:latest-build
 artifacts:
   files:
-    - target/hello-verticle-3.9.0.jar.jar
+    - target/hello-verticle-3.9.0.jar
